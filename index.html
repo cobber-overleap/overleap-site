@@ -281,6 +281,80 @@
       line-height: 1.7;
     }
 
+    /* TEAM */
+    .team-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      background: var(--navy);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    .team-info h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .team-role {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .team-bio {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .team-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .team-tags span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--navy);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.25rem 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .team-card { flex-direction: column; gap: 1rem; }
+    }
+
     /* APPROACH */
     #approach { background: var(--navy); }
 
@@ -451,6 +525,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
       <li><a href="#approach">Approach</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
@@ -483,19 +558,19 @@
         <div class="about-stats">
           <div class="stat-card">
             <div class="stat-number">20+</div>
-            <div class="stat-label">Years combined IT &amp; engineering leadership</div>
+            <div class="stat-label">Years of combined IT &amp; engineering leadership</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">Amazon<br><small style="font-size:0.7rem;font-weight:500">Capital One · Autodesk</small></div>
-            <div class="stat-label">Enterprise pedigree</div>
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Engineers, managers &amp; leaders developed</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">CTO &amp;<br><small style="font-size:0.7rem;font-weight:500">TPM / Eng. Director</small></div>
-            <div class="stat-label">Executive depth</div>
+            <div class="stat-number">$1B+</div>
+            <div class="stat-label">Scale of programs delivered</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">AI · Fin.<br><small style="font-size:0.7rem;font-weight:500">E-Commerce · SaaS</small></div>
-            <div class="stat-label">Cross-industry experience</div>
+            <div class="stat-number">6+</div>
+            <div class="stat-label">Industries served across Canada &amp; the US</div>
           </div>
         </div>
       </div>
@@ -562,6 +637,42 @@
     </div>
   </section>
 
+  <!-- TEAM -->
+  <section id="team" style="background:var(--bg)">
+    <div class="section-inner">
+      <div class="section-label">The Team</div>
+      <h2 class="section-title">Practitioners, not theorists</h2>
+      <p class="section-desc">Our team has built, scaled, and led technology organizations at some of the world's most demanding companies — Amazon, Capital One, Autodesk, Wayfair, Morgan Stanley, IBM, and high-growth startups across AI, fintech, gaming, e-commerce, and travel.</p>
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="team-avatar">CTO</div>
+          <div class="team-info">
+            <h3>Technology Strategy &amp; IT Management</h3>
+            <p class="team-role">Chief Technology Officer</p>
+            <p class="team-bio">Senior technology executive with a track record of building high-performing IT organizations, delivering complex transformations, and aligning technology investment with business outcomes. Industry experience spanning travel, e-commerce, financial services, and enterprise software.</p>
+            <div class="team-tags">
+              <span>IT Strategy</span><span>Cost Optimization</span><span>Team Leadership</span><span>Roadmapping</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">TPM</div>
+          <div class="team-info">
+            <h3>Engineering Leadership &amp; Program Delivery</h3>
+            <p class="team-role">Principal TPM · Former Director of Engineering · VP of Engineering</p>
+            <p class="team-bio">Engineering leader with deep roots in software development and a career path from senior engineer to VP — including directing 8 engineering teams at Capital One and launching quick-commerce programs at Amazon serving millions of customers worldwide. Published researcher with a background in AI and computer science.</p>
+            <div class="team-tags">
+              <span>Engineering Org Design</span><span>Program Management</span><span>AI &amp; Deep Learning</span><span>Agile Delivery</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- APPROACH -->
   <section id="approach">
     <div class="section-inner">
@@ -615,7 +726,7 @@
               <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div class="contact-item-text">
-              <span style="font-weight:500;color:var(--navy)">Canada</span>
+              <span style="font-weight:500;color:var(--navy)">Worldwide</span>
               <span>Remote &amp; on-site engagements</span>
             </div>
           </div>

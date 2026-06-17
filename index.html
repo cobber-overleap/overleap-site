@@ -818,7 +818,7 @@
             </div>
           </div>
         </div>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form id="contactForm">
           <div class="form-row">
             <input type="text" name="name" placeholder="Your name" required>
             <input type="email" name="email" placeholder="Email address" required>
@@ -835,8 +835,38 @@
             <option>Something else</option>
           </select>
           <textarea name="message" placeholder="Tell me a bit about your situation..."></textarea>
-          <button type="submit" class="btn-submit">Send Message</button>
+          <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+          <p id="formMsg" style="display:none;margin-top:0.5rem;font-size:0.9rem;"></p>
         </form>
+        <script>
+          document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('formMsg');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            const data = new FormData(this);
+            data.append('access_key', '9276d249-f185-4e7d-a739-869aa8ff286f');
+            try {
+              const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+              const json = await res.json();
+              if (json.success) {
+                msg.textContent = "Message sent! We'll be in touch soon.";
+                msg.style.color = '#2a7fff';
+                this.reset();
+              } else {
+                msg.textContent = 'Something went wrong. Please email us at info@overleap.ca';
+                msg.style.color = '#e55';
+              }
+            } catch {
+              msg.textContent = 'Something went wrong. Please email us at info@overleap.ca';
+              msg.style.color = '#e55';
+            }
+            msg.style.display = 'block';
+            btn.textContent = 'Send Message';
+            btn.disabled = false;
+          });
+        </script>
       </div>
     </div>
   </section>
